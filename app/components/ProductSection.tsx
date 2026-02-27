@@ -1,6 +1,7 @@
 "use client";
 
 import ProductCard from "./ProductCard";
+import ScrollReveal from "./ScrollReveal";
 
 interface Product {
     name: string;
@@ -39,7 +40,9 @@ export default function ProductSection({ title, products, filters }: ProductSect
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 {products.map((product, idx) => (
-                    <ProductCard key={idx} {...product} />
+                    <ScrollReveal key={idx} delay={idx * 50}>
+                        <ProductCard {...product} />
+                    </ScrollReveal>
                 ))}
             </div>
         </section>

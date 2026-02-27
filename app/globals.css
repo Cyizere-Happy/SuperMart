@@ -206,20 +206,25 @@ body {
 }
 
 .product-image-wrap {
-  background: #f8f8f8;
-  padding: 16px;
+  background: #f9f9f9;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 180px;
+  height: 160px;
   position: relative;
+  transition: background 0.3s;
+}
+
+.product-card:hover .product-image-wrap {
+  background: #f0f0f0;
 }
 
 .product-category-tag {
   display: inline-block;
   font-size: 0.7rem;
-  color: var(--green-accent);
-  background: var(--green-light);
+  color: #fc7d00;
+  background: #fff7ed;
   padding: 2px 8px;
   border-radius: 4px;
   margin-bottom: 4px;
@@ -244,23 +249,23 @@ body {
 }
 
 .product-price {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--green-primary);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fc7d00;
 }
 
 .product-original-price {
   font-size: 0.8rem;
-  color: var(--text-light-gray);
+  color: #999;
   text-decoration: line-through;
-  margin-left: 6px;
+  margin-left: 4px;
 }
 
 .product-add-btn {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--green-primary);
+  background: #fc7d00;
   color: white;
   border: none;
   cursor: pointer;
@@ -272,7 +277,7 @@ body {
 }
 
 .product-add-btn:hover {
-  background: var(--green-dark);
+  background: #e67200;
   transform: scale(1.1);
 }
 
@@ -376,6 +381,74 @@ body {
 /* Star rating helper */
 .star {
   display: inline-block;
+}
+
+/* Premium Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Preloader Animations */
+@keyframes preloader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #fc7d00;
+  animation: preloader-spin 1.5s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Scrollbar */
