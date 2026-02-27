@@ -63,8 +63,13 @@ const fetchProduct = (id: string): Product => {
   return products[id] || products["1"];
 };
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = fetchProduct(params.id);
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const resolvedParams = await params;
+  const product = fetchProduct(resolvedParams.id);
 
   return (
     <>
