@@ -337,20 +337,7 @@ body {
   border-radius: 20px;
 }
 
-/* Footer */
-.footer {
-  background: var(--green-primary);
-  color: white;
-}
 
-.footer a {
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.2s;
-}
-
-.footer a:hover {
-  color: white;
-}
 
 /* Cart icon */
 .cart-badge {

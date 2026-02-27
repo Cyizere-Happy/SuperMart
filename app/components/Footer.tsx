@@ -1,87 +1,74 @@
 export default function Footer() {
     return (
-        <footer className="footer mt-12">
-            <div className="max-w-[1280px] mx-auto px-12 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    {/* Brand */}
+        <footer className="bg-white border-t border-gray-100 relative overflow-hidden pt-20 pb-10">
+            <div className="max-w-[1440px] mx-auto px-24">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 relative z-10">
+                    {/* Brand Column */}
                     <div>
-                        <h3 className="text-2xl font-bold italic mb-4">Simba</h3>
-                        <p className="text-sm opacity-80 leading-relaxed mb-4">
-                            Your trusted source for fresh, organic, and natural groceries
-                            delivered straight to your door.
+                        <h3 className="text-xl font-black tracking-tighter mb-4" style={{ color: '#fc7d00' }}>SIMBA SUPERMARKET</h3>
+                        <p className="text-[10px] tracking-[0.2em] text-gray-400 font-medium uppercase font-sans">
+                            FRESHNESS · QUALITY · SUSTAINABILITY.
                         </p>
-                        <div className="flex items-center gap-3">
-                            {["facebook", "twitter", "instagram", "youtube"].map((social) => (
-                                <a
-                                    key={social}
-                                    href="#"
-                                    className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                                    aria-label={social}
-                                >
-                                    <span className="text-xs uppercase">{social[0]}</span>
-                                </a>
+                    </div>
+
+                    {/* Work Column (SHOP) */}
+                    <div>
+                        <h4 className="text-[10px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-6">SHOP</h4>
+                        <ul className="space-y-3">
+                            {["FRESH PRODUCE", "DAIRY & EGGS", "MEAT & SEAFOOD", "BAKERY", "BEVERAGES"].map((item) => (
+                                <li key={item}>
+                                    <a href="#" className="text-xs font-bold tracking-tight hover:text-[#fc7d00] transition-colors">{item}</a>
+                                </li>
                             ))}
+                        </ul>
+                    </div>
+
+                    {/* Connect Column */}
+                    <div>
+                        <h4 className="text-[10px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-6">CONNECT</h4>
+                        <ul className="space-y-3">
+                            {["INSTAGRAM", "FACEBOOK", "LINKEDIN", "TWITTER", "EMAIL"].map((item) => (
+                                <li key={item}>
+                                    <a href="#" className="text-xs font-bold tracking-tight hover:text-[#fc7d00] transition-colors">{item}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Info Column */}
+                    <div>
+                        <h4 className="text-[10px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-6">INFO</h4>
+                        <div className="space-y-4">
+                            <div>
+                                <p className="text-xs font-bold leading-relaxed mb-1">AVAILABLE FOR</p>
+                                <p className="text-xs font-bold leading-relaxed">24/7 ONLINE ORDERS.</p>
+                            </div>
+                            <div className="pt-4">
+                                <p className="text-[10px] tracking-[0.1em] text-gray-400 uppercase">LOCATION</p>
+                                <p className="text-xs font-bold">KIGALI, RWANDA</p>
+                            </div>
                         </div>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="font-semibold mb-4">Quick Links</h4>
-                        <ul className="space-y-2 text-sm">
-                            {["About Us", "Shop", "Blog", "Contact Us", "FAQs"].map((link) => (
-                                <li key={link}>
-                                    <a href="#" className="hover:underline">{link}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Customer Service */}
-                    <div>
-                        <h4 className="font-semibold mb-4">Customer Service</h4>
-                        <ul className="space-y-2 text-sm">
-                            {["My Account", "Order Tracking", "Wishlist", "Shipping Policy", "Return Policy"].map((link) => (
-                                <li key={link}>
-                                    <a href="#" className="hover:underline">{link}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Contact */}
-                    <div>
-                        <h4 className="font-semibold mb-4">Contact Info</h4>
-                        <ul className="space-y-3 text-sm opacity-80">
-                            <li className="flex items-start gap-2">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mt-0.5 flex-shrink-0">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                                    <circle cx="12" cy="10" r="3" />
-                                </svg>
-                                123 Organic Street, Green City, CA 94103
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="flex-shrink-0">
-                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                                </svg>
-                                1-800-234-5678
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="flex-shrink-0">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                    <polyline points="22,6 12,13 2,6" />
-                                </svg>
-                                info@simba.com
-                            </li>
-                        </ul>
                     </div>
                 </div>
 
-                <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-sm opacity-60">
-                    <p>&copy; 2026 Simba. All rights reserved.</p>
-                    <div className="flex items-center gap-4 mt-2 md:mt-0">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                    </div>
+                {/* Separator */}
+                <div className="h-[1px] bg-gray-100 w-full mb-8"></div>
+
+                {/* Bottom Bar */}
+                <div className="flex flex-col md:flex-row justify-between items-center relative z-10">
+                    <p className="text-[10px] tracking-[0.2em] text-gray-400 font-medium uppercase">
+                        © 2026 SIMBA SUPERMARKET. ALL RIGHTS RESERVED.
+                    </p>
+                    <p className="text-[10px] tracking-[0.2em] text-gray-400 font-medium uppercase mt-4 md:mt-0">
+                        SIMBA DIGITAL EXPERIENCE V1.0 <span className="ml-2" style={{ color: '#fc7d00' }}>●</span>
+                    </p>
+                </div>
+
+                {/* Huge Background Text */}
+                <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 select-none pointer-events-none w-full text-center">
+                    <h2 className="text-[25vw] font-black tracking-tighter leading-none opacity-50" style={{ color: '#fff5e6' }}>
+                        SIMBA
+                    </h2>
                 </div>
             </div>
         </footer>
