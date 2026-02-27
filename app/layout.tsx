@@ -3,8 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Simba - Fresh Organic Groceries",
-  description: "Shop fresh, organic fruits, vegetables, dairy, and more at Simba. Best deals on healthy food delivered to your door.",
+  description:
+    "Shop fresh, organic fruits, vegetables, dairy, and more at Simba. Best deals on healthy food delivered to your door.",
 };
+
+import { CartProvider } from "./context/CartContext";
+import CartSidebar from "./components/CartSideBar";
 
 export default function RootLayout({
   children,
@@ -20,7 +24,10 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {children}
+        <CartProvider>
+          {children}
+          <CartSidebar />
+        </CartProvider>
       </body>
     </html>
   );
