@@ -58,7 +58,7 @@ body {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -155,7 +155,9 @@ body {
   margin: 0 auto 12px;
   overflow: hidden;
   border: 3px solid transparent;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .category-item:hover .category-circle {
@@ -342,8 +344,6 @@ body {
   border-radius: 20px;
 }
 
-
-
 /* Cart icon */
 .cart-badge {
   background: var(--yellow-primary);
@@ -467,4 +467,28 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #999;
+}
+
+/* Custom Scrollbar Utility */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

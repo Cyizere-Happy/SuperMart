@@ -33,21 +33,25 @@ export default function Navbar() {
             { label: "About", href: "/about" },
             { label: "Shop", dropdown: true, href: "/shop" },
             { label: "Pages", dropdown: true, href: "#" },
-            { label: "Restaurant", href: "/restaurant" },
+            { label: "Blog", href: "#" },
             { label: "Contact", href: "/contact" },
           ].map((link) => {
             // Very simple active state logic
             // For a real app, use usePathname from next/navigation
-            const isActive = typeof window !== 'undefined' ? window.location.pathname === link.href : false;
+            const isActive =
+              typeof window !== "undefined"
+                ? window.location.pathname === link.href
+                : false;
 
             return (
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-sm font-medium transition-colors flex items-center gap-1 ${isActive
-                  ? "text-[#fc7d00]"
-                  : "text-gray-700 hover:text-[#fc7d00]"
-                  }`}
+                className={`text-sm font-medium transition-colors flex items-center gap-1 ${
+                  isActive
+                    ? "text-[#fc7d00]"
+                    : "text-gray-700 hover:text-[#fc7d00]"
+                }`}
               >
                 {link.label}
                 {link.dropdown && (
