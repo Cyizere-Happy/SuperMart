@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 const categories = [
@@ -17,18 +18,20 @@ export default function CategorySection() {
             <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
                 {categories.map((cat, index) => (
                     <ScrollReveal key={cat.name} animation="reveal-scale" delay={index * 100}>
-                        <div className="category-item">
-                            <div className="category-circle">
-                                <Image
-                                    src={cat.image}
-                                    alt={cat.name}
-                                    width={90}
-                                    height={90}
-                                    className="object-cover rounded-full"
-                                />
+                        <Link href={`/shop?category=${encodeURIComponent(cat.name)}`} className="block group">
+                            <div className="category-item">
+                                <div className="category-circle transition-transform group-hover:scale-105">
+                                    <Image
+                                        src={cat.image}
+                                        alt={cat.name}
+                                        width={90}
+                                        height={90}
+                                        className="object-cover rounded-full"
+                                    />
+                                </div>
+                                <span className="category-name group-hover:text-[#fc7d00] transition-colors">{cat.name}</span>
                             </div>
-                            <span className="category-name">{cat.name}</span>
-                        </div>
+                        </Link>
                     </ScrollReveal>
                 ))}
             </div>

@@ -65,7 +65,7 @@ const bestSellerProducts = [
     originalPrice: 24.99,
     rating: 4,
     badge: "sale" as const,
-    category: "Fruits & Vegetables",
+    category: "Organic Produce",
   },
   {
     name: "Mediocre Linen Keyboard",
@@ -75,7 +75,7 @@ const bestSellerProducts = [
     originalPrice: 9.99,
     rating: 3,
     badge: "sale" as const,
-    category: "Fruits & Vegetables",
+    category: "Fresh Vegetables",
   },
   {
     name: "Fantastic Granite Car",
@@ -83,7 +83,7 @@ const bestSellerProducts = [
     weight: "2 lb",
     price: 98.28,
     rating: 5,
-    category: "Fruits & Vegetables",
+    category: "Fresh Fruit",
   },
   {
     name: "Synergistic Plastic Watch",
@@ -91,7 +91,7 @@ const bestSellerProducts = [
     weight: "3 units",
     price: 114.06,
     rating: 4,
-    category: "Fruits & Vegetables",
+    category: "Organic Produce",
   },
   {
     name: "Mediocre Paper Hat",
@@ -99,7 +99,7 @@ const bestSellerProducts = [
     weight: "1 Kg",
     price: 12.01,
     rating: 3,
-    category: "Fruits & Vegetables",
+    category: "Fresh Vegetables",
   },
 ];
 

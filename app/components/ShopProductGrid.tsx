@@ -1,5 +1,7 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import ProductCard from "./ProductCard";
 import ScrollReveal from "./ScrollReveal";
 
@@ -19,7 +21,7 @@ const mockProducts = [
     weight: "500g",
     price: 8.5,
     rating: 4,
-    category: "Cereals",
+    category: "Breakfast & Cereal",
   },
   {
     name: "Eco-Friendly Dish Soap",
@@ -52,7 +54,7 @@ const mockProducts = [
     weight: "6 units",
     price: 18.0,
     rating: 4,
-    category: "Pastries",
+    category: "Dairy",
   },
   {
     name: "Stainless Steel Chef Knife",
@@ -68,7 +70,7 @@ const mockProducts = [
     weight: "400g",
     price: 6.75,
     rating: 4,
-    category: "Food Products",
+    category: "Produce",
   },
   {
     name: "All-Purpose Cleaner",
@@ -101,16 +103,32 @@ const mockProducts = [
     weight: "500g",
     price: 9.5,
     rating: 4,
-    category: "Food Products",
+    category: "Meat & Seafood",
   },
 ];
 
-export default function ShopProductGrid() {
+function ProductGridContent() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
+
+  const filteredProducts = categoryParam
+    ? mockProducts.filter((p) => p.category === categoryParam || p.category.includes(categoryParam.replace(" & ", "")))
+    : mockProducts;
+
+  if (filteredProducts.length === 0) {
+    return (
+      <div className="py-20 text-center">
+        <h3 className="text-xl font-medium text-gray-500 mb-2">No products found</h3>
+        <p className="text-sm text-gray-400">There are currently no items in the "{categoryParam}" category.</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-        {mockProducts.map((product, idx) => (
-          <ScrollReveal key={idx} delay={idx * 50}>
+        {filteredProducts.map((product, idx) => (
+          <ScrollReveal key={`${product.name}-${idx}`} delay={idx * 50}>
             <ProductCard {...product} variant="horizontal" />
           </ScrollReveal>
         ))}
@@ -124,11 +142,10 @@ export default function ShopProductGrid() {
         {[1, 2, 3, "...", 10].map((page, i) => (
           <button
             key={i}
-            className={`w-10 h-10 flex items-center justify-center text-xs font-bold rounded-lg transition-all ${
-              page === 1
-                ? "bg-[#fc7d00] text-white shadow-lg shadow-[#fc7d00]/20"
-                : "text-gray-400 hover:bg-gray-50"
-            }`}
+            className={`w-10 h-10 flex items-center justify-center text-xs font-bold rounded-lg transition-all ${page === 1
+              ? "bg-[#fc7d00] text-white shadow-lg shadow-[#fc7d00]/20"
+              : "text-gray-400 hover:bg-gray-50"
+              }`}
           >
             {page}
           </button>
@@ -138,5 +155,13 @@ export default function ShopProductGrid() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function ShopProductGrid() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center text-gray-400 animate-pulse">Loading products...</div>}>
+      <ProductGridContent />
+    </Suspense>
   );
 }
