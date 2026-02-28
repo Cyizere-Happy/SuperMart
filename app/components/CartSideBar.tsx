@@ -95,7 +95,7 @@ export default function CartSidebar() {
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-[#e53e3e]"
+                    className="text-[#fc7d00]"
                   >
                     <circle cx="9" cy="21" r="1" />
                     <circle cx="20" cy="21" r="1" />
@@ -112,7 +112,7 @@ export default function CartSidebar() {
 
               {/* Order Type Tabs */}
               <div className="grid grid-cols-3 gap-1 bg-gray-100 p-1 rounded-full mb-6">
-                <button className="bg-[#e53e3e] text-white rounded-full py-1.5 text-[10px] font-bold shadow-sm">
+                <button className="bg-[#fc7d00] text-white rounded-full py-1.5 text-[10px] font-bold shadow-sm">
                   Delivery
                 </button>
                 <button className="text-gray-500 py-1.5 text-[10px] font-bold">
@@ -220,7 +220,7 @@ export default function CartSidebar() {
                   <span className="text-base font-black tracking-tight text-[#1a1a1a]">
                     TOTAL
                   </span>
-                  <span className="text-lg font-black text-[#e53e3e]">
+                  <span className="text-lg font-black text-[#fc7d00]">
                     ${total.toFixed(2)}
                   </span>
                 </div>

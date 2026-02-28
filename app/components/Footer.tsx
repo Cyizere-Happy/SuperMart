@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="bg-white border-t border-gray-100 relative overflow-hidden pt-20 pb-10">
+        <footer className="bg-white border-t border-gray-100 relative overflow-hidden pt-32 pb-10">
             <div className="max-w-[1440px] mx-auto px-24">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 relative z-10">
                     {/* Brand Column */}
