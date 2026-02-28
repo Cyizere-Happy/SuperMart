@@ -2,8 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
+import { Alfa_Slab_One } from "next/font/google";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+const alfa = Alfa_Slab_One({ weight: "400", subsets: ["latin"] });
 
 export default function ContactUsPage() {
     return (
@@ -171,16 +174,13 @@ export default function ContactUsPage() {
 
                 {/* Map Section */}
                 <section className="max-w-4xl mx-auto px-4 mt-8">
-                    <div className="w-full h-[240px] md:h-[300px] bg-gray-200 rounded-2xl overflow-hidden shadow-md border border-gray-100 relative grayscale-[0.2] contrast-125">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d2483.288961633513!2d-0.12217632341496677!3d51.50329727181023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2suk!4v1709405273188!5m2!1sen!2suk"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen={true}
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                        ></iframe>
+                    <div className="w-full h-[240px] md:h-[300px] rounded-2xl overflow-hidden shadow-md border border-gray-100 relative">
+                        <LeafletMap
+                            center={[51.5033, -0.1196]}
+                            zoom={15}
+                            markerPosition={[51.5033, -0.1196]}
+                            popupText="SuperMart — London Eye Branch"
+                        />
                     </div>
                 </section>
 
