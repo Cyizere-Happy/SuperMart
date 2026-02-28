@@ -2,11 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { Alfa_Slab_One } from "next/font/google";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
-const alfa = Alfa_Slab_One({ weight: "400", subsets: ["latin"] });
 
 export default function ContactUsPage() {
     return (
@@ -35,7 +32,7 @@ export default function ContactUsPage() {
                     </div>
 
                     <div className="max-w-2xl mx-auto text-center relative z-10">
-                        <h1 className={`${alfa.className} text-3xl md:text-5xl text-[#1a1a1a] mb-3 tracking-wide`}>
+                        <h1 className="font-bold text-3xl md:text-5xl text-[#1a1a1a] mb-3 tracking-wide">
                             Contact Us
                         </h1>
 
