@@ -36,15 +36,10 @@ export default function Navbar() {
             { label: "Restaurant", href: "/restaurant" },
             { label: "Contact", href: "/contact" },
           ].map((link) => {
-            // Very simple active state logic
-            // For a real app, use usePathname from next/navigation
-            const isActive =
-              typeof window !== "undefined"
-                ? window.location.pathname === link.href
-                : false;
+            const isActive = pathname === link.href;
 
             return (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className={`text-sm font-medium transition-colors flex items-center gap-1 ${isActive
@@ -70,7 +65,7 @@ export default function Navbar() {
                     />
                   </svg>
                 )}
-              </a>
+              </Link>
             );
           })}
         </div>
