@@ -44,7 +44,7 @@ export default function DealOfMonth() {
         <section className="py-10">
             <div className="deal-section p-8 lg:p-12">
                 <h2 className="section-title text-center mb-10">Deal Of The Month</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {dealProducts.map((product, idx) => (
                         <ProductCard key={idx} {...product} />
                     ))}

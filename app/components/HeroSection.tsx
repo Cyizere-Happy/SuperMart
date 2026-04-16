@@ -1,168 +1,138 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
-
-const slides = [
-    {
-        badge: "100% PURE & NATURAL",
-        title: "Fresh Mango\nJuice Just Fruit",
-        price: "$39.99",
-        image: "/images/hero-mango.png",
-    },
-    {
-        badge: "PREMIUM QUALITY",
-        title: "Fresh Vegetables\n& Organic Greens",
-        price: "$12.99",
-        image: "/images/product-peppers.png",
-    },
-    {
-        badge: "BEST SELECTION",
-        title: "Daily Fresh\nFruits & Berries",
-        price: "$24.99",
-        image: "/images/product-grapes.png",
-    },
-    {
-        badge: "HEALTHY CHOICES",
-        title: "Breakfast Cereal\n& Morning Treats",
-        price: "$8.99",
-        image: "/images/cat-breakfast.png",
-    },
-    {
-        badge: "FARM FRESH",
-        title: "Premium Dairy\n& Bakery Items",
-        price: "$15.99",
-        image: "/images/cat-dairy.png",
-    },
-    {
-        badge: "HOUSEHOLD ESSENTIALS",
-        title: "Snacks, Chips\n& Chocolates",
-        price: "$6.99",
-        image: "/images/cat-snacks.png",
-    },
-];
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function HeroSection() {
-    const [current, setCurrent] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setIsAnimating(true);
-            setTimeout(() => {
-                setCurrent((prev) => (prev + 1) % slides.length);
-                setIsAnimating(false);
-            }, 400);
-        }, 4000);
-
-        return () => clearInterval(timer);
-    }, []);
-
-    const slide = slides[current];
-
     return (
-        <section className="py-6">
-            <div className="hero-section flex flex-col lg:flex-row gap-4 p-6 lg:p-8">
-                {/* Left - Main Hero */}
-                <div className="flex-1 flex flex-col lg:flex-row items-center gap-6">
-                    <div className="flex-1 py-6 lg:py-10 lg:pl-6">
-                        <span
-                            className={`hero-badge inline-block mb-4 transition-all duration-400 ${isAnimating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"
-                                }`}
+        <section className="max-w-[1440px] mx-auto px-12 py-4">
+            <div className="flex flex-col lg:flex-row gap-5">
+                
+                {/* Main Hero Banner - Left (Wider & Shorter) */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.99 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex-[2] relative rounded-[28px] overflow-hidden min-h-[280px] lg:min-h-[340px] group flex items-center bg-[#f0f3f6]"
+                >
+                    {/* Content Section */}
+                    <div className="relative z-10 w-full lg:w-[60%] p-8 lg:p-14 flex flex-col justify-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
                         >
-                            {slide.badge}
-                        </span>
-                        <h2
-                            className={`text-3xl lg:text-4xl font-bold leading-tight mb-4 transition-all duration-400 ${isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
-                                }`}
-                            style={{ color: "var(--text-dark)", whiteSpace: "pre-line" }}
-                        >
-                            {slide.title}
-                        </h2>
-                        <p
-                            className={`hero-price mb-6 transition-all duration-400 ${isAnimating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"
-                                }`}
-                        >
-                            Start from <span>{slide.price}</span>
-                        </p>
-                        <button className="shop-now-btn">Shop Now</button>
+                            <h1 className="text-[32px] lg:text-[44px] font-[900] text-[#1a1c1e] leading-[1] mb-5 tracking-tighter">
+                                Fresh Market <br />
+                                <span className="text-[#fc7d00]">Direct To Your Door</span>
+                            </h1>
+                            
+                            <p className="text-gray-500 font-bold text-[13px] mb-8 max-w-[320px] leading-relaxed">
+                                Join our Simba community for fresh organic produce, quality groceries, and daily essentials.
+                            </p>
+                            
+                            <Link href="/shop" className="block mb-6">
+                                <motion.button 
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-white text-[#1a1c1e] w-fit px-10 py-3.5 rounded-full font-[900] text-[11px] uppercase tracking-[0.15em] shadow-xl shadow-gray-200/40 transition-all border border-gray-100/50"
+                                >
+                                    Shop Now
+                                </motion.button>
+                            </Link>
 
-                        {/* Slide Indicators */}
-                        <div className="flex items-center gap-2 mt-6">
-                            {slides.map((_, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => {
-                                        setIsAnimating(true);
-                                        setTimeout(() => {
-                                            setCurrent(i);
-                                            setIsAnimating(false);
-                                        }, 400);
-                                    }}
-                                    className={`h-2 rounded-full transition-all duration-300 ${i === current
-                                            ? "w-8 bg-[#fc7d00]"
-                                            : "w-2 bg-gray-300 hover:bg-gray-400"
-                                        }`}
-                                    aria-label={`Slide ${i + 1}`}
-                                />
-                            ))}
+                            <Link href="/shop" className="flex items-center gap-2 text-[#fc7d00] font-black text-[11px] uppercase tracking-widest hover:translate-x-2 transition-transform">
+                                <span>Enter Marketplace</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </Link>
+                        </motion.div>
+
+                        {/* Pagination indicator */}
+                        <div className="absolute bottom-8 left-14 flex items-center gap-2">
+                            <span className="text-[10px] font-black text-gray-300">01</span>
+                            <div className="w-10 h-0.5 bg-gray-200 relative overflow-hidden rounded-full">
+                                <div className="absolute top-0 left-0 w-1/2 h-full bg-[#fc7d00]" />
+                            </div>
+                            <span className="text-[10px] font-black text-gray-400">02</span>
                         </div>
                     </div>
 
-                    <div
-                        className={`flex-shrink-0 w-[250px] h-[280px] lg:w-[300px] lg:h-[320px] relative transition-all duration-400 ${isAnimating
-                                ? "opacity-0 scale-95"
-                                : "opacity-100 scale-100"
-                            }`}
+                    {/* Image Section - Repositioned for wider layout */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="absolute right-0 bottom-0 w-1/2 lg:w-[45%] h-full z-0 flex items-end justify-end pointer-events-none"
                     >
                         <Image
-                            src={slide.image}
-                            alt={slide.title}
-                            fill
-                            className="object-contain"
+                            src="/images/hero_juice.png"
+                            alt="Juice Milk"
+                            width={500}
+                            height={500}
+                            className="object-contain object-right-bottom scale-110 translate-y-4 group-hover:scale-115 transition-transform duration-1000 rounded-[40px]"
                             priority
                         />
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
-                {/* Right - Promo Cards */}
-                <div className="w-full lg:w-[300px] flex flex-col gap-4">
-                    {/* 40% Off Card */}
-                    <div className="promo-card promo-card-yellow p-5 flex items-center gap-3 cursor-pointer hover:shadow-lg transition-shadow">
-                        <div className="flex-1">
-                            <h3 className="text-lg font-bold leading-tight mb-1" style={{ color: "var(--text-dark)" }}>
-                                40% Off<br />Everyday Fresh
-                            </h3>
-                            <p className="text-xs opacity-70">Fresh Produce Order Today</p>
-                        </div>
-                        <div className="w-[100px] h-[90px] relative flex-shrink-0">
-                            <Image
-                                src="/images/hero-fresh.png"
-                                alt="Everyday Fresh"
-                                fill
-                                className="object-cover rounded-lg"
-                            />
-                        </div>
+                {/* Side Promo Banner - Right */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.99 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="flex-[0.85] relative rounded-[28px] overflow-hidden min-h-[280px] lg:min-h-[340px] group bg-[#ffc107] flex flex-col"
+                >
+                    <div className="relative z-10 p-10 pb-0 flex flex-col">
+                        <motion.div
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4, duration: 0.5 }}
+                        >
+                            <h2 className="text-[32px] lg:text-[38px] font-[900] text-[#1a1c1e] leading-[1] mb-3 tracking-tighter">
+                                20% SALE <br /> OFF
+                            </h2>
+                            <p className="text-[#1a1c1e]/70 font-bold text-[12px] mb-6 leading-relaxed">
+                                Synthetic seeds <br /> Net 2.0 OZ
+                            </p>
+                            
+                            <Link href="/shop">
+                                <motion.button 
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-white text-[#1a1c1e] w-fit px-8 py-3 rounded-full font-[900] text-[10px] uppercase tracking-[0.15em] shadow-lg shadow-black/5"
+                                >
+                                    Shop Now
+                                </motion.button>
+                            </Link>
+                        </motion.div>
                     </div>
 
-                    {/* 20% Off Card */}
-                    <div className="promo-card promo-card-green p-5 flex items-center gap-3 cursor-pointer hover:shadow-lg transition-shadow">
-                        <div className="flex-1">
-                            <h3 className="text-lg font-bold leading-tight mb-1" style={{ color: "var(--text-dark)" }}>
-                                20% Off<br />Healthy Food
-                            </h3>
-                            <p className="text-xs opacity-70">Start from $29.99</p>
-                        </div>
-                        <div className="w-[100px] h-[90px] relative flex-shrink-0">
-                            <Image
-                                src="/images/hero-healthy.png"
-                                alt="Healthy Food"
-                                fill
-                                className="object-cover rounded-lg"
-                            />
-                        </div>
+                    {/* Image Section - Now takes up the whole bottom part */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                        className="flex-1 w-full pointer-events-none overflow-hidden relative mt-4"
+                    >
+                        <Image
+                            src="/images/hero_food_box.png"
+                            alt="Food Box"
+                            fill
+                            className="object-cover object-center group-hover:scale-110 transition-transform duration-1000"
+                        />
+                    </motion.div>
+
+                    {/* Decorative element */}
+                    <div className="absolute top-8 right-8">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="opacity-20 text-[#1a1c1e]">
+                            <path d="M12 4V20M4 12H20" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3"/>
+                        </svg>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

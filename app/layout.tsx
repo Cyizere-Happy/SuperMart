@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 import { Jost } from "next/font/google";
 import { CartProvider } from "./context/CartContext";
 import CartSidebar from "./components/CartSideBar";
+import Chatbot from "./components/Chatbot";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         <CartProvider>
           {children}
           <CartSidebar />
+          <Chatbot />
         </CartProvider>
       </body>
     </html>

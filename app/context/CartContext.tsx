@@ -3,11 +3,11 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 export interface CartItem {
-  id: string; // Updated to string since product ids can be strings
+  id: string; 
   name: string;
-  category?: string; // e.g. "Fruits & Vegetables"
-  color?: string; // For checkout page compatibility
-  size?: string; // e.g. weight like "1kg" or size like "S"
+  category?: string; 
+  color?: string; 
+  size?: string; 
   price: number;
   quantity: number;
   image: string;

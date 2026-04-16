@@ -7,7 +7,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-xl font-black tracking-tighter mb-4" style={{ color: '#fc7d00' }}>SIMBA SUPERMARKET</h3>
                         <p className="text-[10px] tracking-[0.2em] text-gray-400 font-medium uppercase font-sans">
-                            FRESHNESS · QUALITY · SUSTAINABILITY.
+                            FRESHNESS · QUALITY · SUSTAINABILITY
                         </p>
                     </div>
 

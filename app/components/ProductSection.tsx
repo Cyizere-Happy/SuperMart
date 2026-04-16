@@ -19,11 +19,15 @@ interface ProductSectionProps {
     title: string;
     products: Product[];
     filters?: string[];
+    activeFilter?: string;
+    onFilterChange?: (filter: string) => void;
 }
 
-export default function ProductSection({ title, products, filters }: ProductSectionProps) {
-    const defaultFilter = filters && filters.length > 0 ? filters[0] : "All";
-    const [activeFilter, setActiveFilter] = useState(defaultFilter);
+export default function ProductSection({ title, products, filters, activeFilter: externalFilter, onFilterChange }: ProductSectionProps) {
+    const [internalFilter, setInternalFilter] = useState(filters && filters.length > 0 ? filters[0] : "All");
+    
+    const activeFilter = externalFilter || internalFilter;
+    const setActiveFilter = onFilterChange || setInternalFilter;
 
     // Filter products: if activeFilter is NOT 'All' (or equivalent 'All product'), filter by product.category.
     const filteredProducts = products.filter(product => {
@@ -50,7 +54,7 @@ export default function ProductSection({ title, products, filters }: ProductSect
                     </div>
                 )}
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {filteredProducts.map((product, idx) => (
                     <ScrollReveal key={`${product.name}-${idx}`} delay={idx * 50}>
                         <ProductCard {...product} />

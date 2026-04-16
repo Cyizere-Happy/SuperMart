@@ -30,11 +30,10 @@ export default function Navbar() {
         <div className="flex items-center justify-center gap-8">
           {[
             { label: "Home", href: "/" },
-            { label: "About", href: "/about" },
             { label: "Shop", dropdown: true, href: "/shop" },
+            { label: "Coffee Shop", href: "/coffeeshop" },
             { label: "Locations", href: "/locations" },
-            { label: "Restaurant", href: "/restaurant" },
-            { label: "Contact", href: "/contact" },
+            { label: "Contact Us", href: "/contact" },
           ].map((link) => {
             const isActive = pathname === link.href;
 

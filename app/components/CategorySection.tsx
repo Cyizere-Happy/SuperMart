@@ -11,29 +11,42 @@ const categories = [
     { name: "Frozen Foods", image: "/images/cat-frozen.png" },
 ];
 
-export default function CategorySection() {
+interface CategorySectionProps {
+    activeCategory?: string;
+    onSelectCategory?: (category: string) => void;
+}
+
+export default function CategorySection({ activeCategory, onSelectCategory }: CategorySectionProps) {
     return (
         <section className="py-12">
             <h2 className="section-title text-center mb-10">Shop by category</h2>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
-                {categories.map((cat, index) => (
-                    <ScrollReveal key={cat.name} animation="reveal-scale" delay={index * 100}>
-                        <Link href={`/shop?category=${encodeURIComponent(cat.name)}`} className="block group">
-                            <div className="category-item">
-                                <div className="category-circle transition-transform group-hover:scale-105">
-                                    <Image
-                                        src={cat.image}
-                                        alt={cat.name}
-                                        width={90}
-                                        height={90}
-                                        className="object-cover rounded-full"
-                                    />
+                {categories.map((cat, index) => {
+                    const isActive = activeCategory === cat.name;
+                    return (
+                        <ScrollReveal key={cat.name} animation="reveal-scale" delay={index * 100}>
+                            <div 
+                                onClick={() => onSelectCategory?.(cat.name)}
+                                className="block group cursor-pointer"
+                            >
+                                <div className="category-item">
+                                    <div className={`category-circle transition-all duration-300 ${isActive ? 'ring-4 ring-[#fc7d00] scale-110 shadow-lg' : 'group-hover:scale-105'}`}>
+                                        <Image
+                                            src={cat.image}
+                                            alt={cat.name}
+                                            width={90}
+                                            height={90}
+                                            className="object-cover rounded-full"
+                                        />
+                                    </div>
+                                    <span className={`category-name transition-colors ${isActive ? 'text-[#fc7d00] font-bold' : 'group-hover:text-[#fc7d00]'}`}>
+                                        {cat.name}
+                                    </span>
                                 </div>
-                                <span className="category-name group-hover:text-[#fc7d00] transition-colors">{cat.name}</span>
                             </div>
-                        </Link>
-                    </ScrollReveal>
-                ))}
+                        </ScrollReveal>
+                    );
+                })}
             </div>
         </section>
     );
