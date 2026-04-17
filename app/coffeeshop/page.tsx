@@ -184,7 +184,7 @@ export default function CoffeeShopPage() {
                                 </p>
 
                                 <button
-                                    onClick={() => addToCart({ id: 'cs-1', name: 'Classic Espresso', price: 3.25, image: '/images/coffeeshop_espresso.png', quantity: 1, type: 'Brewed' })}
+                                    onClick={() => addToCart({ id: 'cs-1', name: 'Classic Espresso', price: 3.25, image: '/images/coffeeshop_espresso.png', quantity: 1, category: 'Brewed' })}
                                     className="bg-[#cdaa7d] hover:bg-[#b89568] text-white text-[11px] font-black uppercase tracking-widest px-5 py-4 rounded-full transition-all active:scale-95 shadow-[0_10px_25px_rgba(205,170,125,0.3)] w-full">
                                     Add to Order
                                 </button>
@@ -217,7 +217,7 @@ export default function CoffeeShopPage() {
                                 </p>
 
                                 <button
-                                    onClick={() => addToCart({ id: 'cs-2', name: 'Almond Croissant', price: 4.75, image: '/images/coffeeshop_croissant.png', quantity: 1, type: 'Pastry' })}
+                                    onClick={() => addToCart({ id: 'cs-2', name: 'Almond Croissant', price: 4.75, image: '/images/coffeeshop_croissant.png', quantity: 1, category: 'Pastry' })}
                                     className="bg-[#4a3424] hover:bg-[#322419] text-white text-[11px] font-black uppercase tracking-widest px-5 py-4 rounded-full transition-all active:scale-95 shadow-lg w-full">
                                     Add to Order
                                 </button>
@@ -250,7 +250,7 @@ export default function CoffeeShopPage() {
                                 </p>
 
                                 <button
-                                    onClick={() => addToCart({ id: 'p-2', name: 'Dark Roast Beans', price: 18.00, image: '/images/coffeeshop_beans.png', quantity: 1, type: 'Beans' })}
+                                    onClick={() => addToCart({ id: 'p-2', name: 'Dark Roast Beans', price: 18.00, image: '/images/coffeeshop_beans.png', quantity: 1, category: 'Beans' })}
                                     className="bg-[#cdaa7d] hover:bg-[#b89568] text-white text-[11px] font-black uppercase tracking-widest px-5 py-4 rounded-full transition-all active:scale-95 shadow-[0_10px_25px_rgba(205,170,125,0.3)] w-full">
                                     Add to Order
                                 </button>
@@ -283,7 +283,7 @@ export default function CoffeeShopPage() {
                                 </p>
 
                                 <button
-                                    onClick={() => addToCart({ id: 'p-5', name: 'Honey Oat Muffin', price: 3.95, image: '/images/cat-breakfast.png', quantity: 1, type: 'Pastry' })}
+                                    onClick={() => addToCart({ id: 'p-5', name: 'Honey Oat Muffin', price: 3.95, image: '/images/cat-breakfast.png', quantity: 1, category: 'Pastry' })}
                                     className="bg-[#1a1a1a] hover:bg-black text-white text-[11px] font-black uppercase tracking-widest px-5 py-4 rounded-full transition-all active:scale-95 shadow-lg w-full">
                                     Add to Order
                                 </button>
